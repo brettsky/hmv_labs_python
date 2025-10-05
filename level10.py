@@ -54,3 +54,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     print('Receiving flag')
     data4 = s.recv(1024)
     print(data4)
+    
