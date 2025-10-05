@@ -1,5 +1,4 @@
 import socket
-import base64
 
 HOST = "temperance.hackmyvm.eu"
 PORT = 9988
