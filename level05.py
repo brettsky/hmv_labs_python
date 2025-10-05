@@ -8,24 +8,7 @@ Mission: In this mission you will receive a string and you must return the last 
 
 '''
 
-import socket
 
-HOST = "temperance.hackmyvm.eu"
-PORT = 9988
-
-
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.connect((HOST, PORT))
-
-    print('Receiving intro')
-    data = s.recv(1024)
-    print(data)
-
-    s.send(b'levelx05')
-
-    print('Receiving challenge')
-    data2 = s.recv(1024)
-    print(data2)
     
     # We have to return the last 5 chars of the string "BWGyiKQKjmsHZSUgjZjhCqReE"
 
@@ -41,4 +24,3 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     print('Receiving flag')
     data3 = s.recv(1024)
     print(data3)
-    

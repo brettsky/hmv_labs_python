@@ -8,6 +8,7 @@ import socket
 HOST = "temperance.hackmyvm.eu"
 PORT = 9988
 
+
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
 
@@ -19,4 +20,18 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
     print('Receiving challenge')
     data2 = s.recv(1024)
-    print(data2) # 
+    print(data2)# b'PxYldfdjpHbquOtToIWNYPscWXGUPxjhJSffOsxuNcQNYwbEcqDyFE'
+
+    data_string = data2.decode('utf-8') # we have to decode from bytes to string
+
+
+    string_length = str(len(data_string))
+
+
+    length_bytes = string_length.encode("utf-8") # we have to encode from string to bytes because the server expects bytes
+
+    print(length_bytes)
+    s.send(length_bytes) # we are sending the length of the string
+
+    data4 = s.recv(1024)
+    print(data4)
